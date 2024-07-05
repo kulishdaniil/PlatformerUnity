@@ -38,7 +38,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         playerManager = GetComponent<PlayerManager>();
         animatorManager = GetComponent<AnimatorManager>();
-        inputManager= GetComponent<InputManager>();
+        inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
     }
@@ -63,7 +63,7 @@ public class PlayerLocomotion : MonoBehaviour
         moveDerection.Normalize();
         moveDerection.y = 0;
 
-        if(isSprinting)
+        if (isSprinting)
         {
             moveDerection = moveDerection * sprintingSpeed;
         }
@@ -78,7 +78,7 @@ public class PlayerLocomotion : MonoBehaviour
                 moveDerection = moveDerection * walkingSpeed;
             }
         }
-        
+
         Vector3 movementVelocity = moveDerection;
         playerRigidbody.velocity = movementVelocity;
     }
@@ -95,7 +95,7 @@ public class PlayerLocomotion : MonoBehaviour
         targetDirection.Normalize();
         targetDirection.y = 0;
 
-        if(targetDirection == Vector3.zero)
+        if (targetDirection == Vector3.zero)
         {
             targetDirection = transform.forward;
         }
@@ -110,11 +110,13 @@ public class PlayerLocomotion : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 rayCastOrigin = transform.position;
+        Vector3 targetPositoin;
         rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffSet;
+        targetPositoin = transform.position;
 
-        if(!isGrounded && !isJumping)
+        if (!isGrounded && !isJumping)
         {
-            if(!playerManager.isInteracting)
+            if (!playerManager.isInteracting)
             {
                 animatorManager.PlayTargetAnimation("Falling", true);
             }
@@ -124,13 +126,15 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
         }
 
-        if(Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer)) 
-        { 
-            if(!isGrounded && !playerManager.isInteracting) 
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+        {
+            if (!isGrounded && !playerManager.isInteracting)
             {
                 animatorManager.PlayTargetAnimation("Landing", true);
             }
 
+            Vector3 rayCastHitPoint = hit.point;
+            targetPositoin.y = rayCastHitPoint.y;
             inAirTimer = 0;
             isGrounded = true;
         }
@@ -138,11 +142,23 @@ public class PlayerLocomotion : MonoBehaviour
         {
             isGrounded = false;
         }
+
+        if (isGrounded && !isJumping)
+        {
+            if (playerManager.isInteracting || inputManager.moveAmount > 0)
+            {
+                transform.position = Vector3.Lerp(transform.position, targetPositoin, Time.deltaTime / 0.1f);
+            }
+            else
+            {
+                transform.position = targetPositoin;
+            }
+        }
     }
 
     public void HandleJumping()
     {
-        if(isGrounded)
+        if (isGrounded)
         {
             animatorManager.animator.SetBool("isJumping", true);
             animatorManager.PlayTargetAnimation("Jump", false);
