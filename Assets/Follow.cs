@@ -16,7 +16,7 @@ public class Follow : MonoBehaviour
     {
         var dir = Cam.transform.position - transform.position;
         transform.LookAt(transform.position - dir);
-        Vector3 v = new Vector3(Player.transform.position.x - 0.5f, 1.8f, Player.transform.position.z - 0.5f);
+        Vector3 v = new Vector3(Player.transform.position.x - 0.5f, Player.transform.position.y+1.8f, Player.transform.position.z - 0.5f);
         transform.position = v;
 
         /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))

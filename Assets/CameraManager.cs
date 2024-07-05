@@ -29,11 +29,14 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = false;
         inputManager = FindObjectOfType<InputManager>();
         targetTransform = FindObjectOfType<PlayerManager>().transform;
         cameraTransform = Camera.main.transform;
         defaultPosition = cameraTransform.localPosition.z;
     }
+
+
 
     public void HandleAllCameraMovement()
     {
