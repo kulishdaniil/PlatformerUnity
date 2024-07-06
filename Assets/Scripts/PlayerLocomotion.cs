@@ -8,6 +8,8 @@ public class PlayerLocomotion : MonoBehaviour
     AnimatorManager animatorManager;
     InputManager inputManager;
 
+    private AudioSource _audioSource;
+
     Vector3 moveDerection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
@@ -34,6 +36,12 @@ public class PlayerLocomotion : MonoBehaviour
     public float jumpHeight = 3;
     public float gravityIntensity = -15;
 
+    [Header("Player Sound")]
+    public AudioClip footstepSound;
+    public AudioClip runningSound;
+    public AudioClip jumpingSound;
+    public AudioClip landingSound;
+
     private void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -41,6 +49,8 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
+
+        _audioSource = GetComponent<AudioSource>();
     }
     public void HandleAllMovement()
     {
@@ -167,6 +177,56 @@ public class PlayerLocomotion : MonoBehaviour
             Vector3 playerVelocity = moveDerection;
             playerVelocity.y = jumpingVelocity;
             playerRigidbody.velocity = playerVelocity;
+        }
+    }
+
+    public float volume = 0.5f;
+
+    private void PlayFootstepSound()
+    {
+        AnimatorStateInfo stateInfo = animatorManager.animator.GetCurrentAnimatorStateInfo(0);
+
+        float horizontal = animatorManager.animator.GetFloat("Horizontal");
+        float vertical = animatorManager.animator.GetFloat("Vertical");
+
+        bool isSlowRunning = (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f) && !isSprinting;
+
+        if (footstepSound != null && !_audioSource.isPlaying && isGrounded && !isJumping && isSlowRunning)
+        {
+            _audioSource.PlayOneShot(footstepSound, volume);
+        }
+    }
+
+    private void PlayRunningSound()
+    {
+        AnimatorStateInfo stateInfo = animatorManager.animator.GetCurrentAnimatorStateInfo(0);
+
+        float horizontal = animatorManager.animator.GetFloat("Horizontal");
+        float vertical = animatorManager.animator.GetFloat("Vertical");
+
+        bool isRunning = (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f) && isSprinting;
+
+        if (runningSound != null && !_audioSource.isPlaying && isGrounded && !isJumping && isRunning)
+        {
+            _audioSource.PlayOneShot(runningSound, volume);
+        }
+    }
+
+    private void PlayJumpingSound()
+    {
+        AnimatorStateInfo stateInfo = animatorManager.animator.GetCurrentAnimatorStateInfo(0);
+
+        if (jumpingSound != null && !_audioSource.isPlaying && isJumping && !isGrounded)
+        {
+            _audioSource.PlayOneShot(jumpingSound, volume);
+        }
+    }
+
+    private void PlayLandingSound()
+    {
+        if (landingSound != null && !_audioSource.isPlaying && isGrounded)
+        {
+            _audioSource.PlayOneShot(landingSound, 1f);
         }
     }
 }
