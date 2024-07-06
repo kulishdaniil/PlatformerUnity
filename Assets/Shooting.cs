@@ -48,10 +48,12 @@ public class Shooting : MonoBehaviour
             if (target != null)
             {
                 target.TakeDamage(damage);
-                Instantiate(HpEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject HP = Instantiate(HpEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(HP, 2f);
             }
 
-            Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject impactGo = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactGo, 2f);
         }
     }
 }
