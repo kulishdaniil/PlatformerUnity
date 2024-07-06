@@ -180,7 +180,7 @@ public class PlayerLocomotion : MonoBehaviour
         }
     }
 
-    public float volume = 0.5f;
+    public float volume = 0.1f;
 
     private void PlayFootstepSound()
     {
@@ -226,7 +226,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (landingSound != null && !_audioSource.isPlaying && isGrounded)
         {
-            _audioSource.PlayOneShot(landingSound, 1f);
+            _audioSource.PlayOneShot(landingSound, volume);
         }
     }
 }
