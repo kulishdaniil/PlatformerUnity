@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PatrolBehaviour : StateMachineBehaviour
+public class PatrolBehaviour2 : StateMachineBehaviour
 {
     float timer;
     List<Transform> points = new List<Transform>();
@@ -15,7 +15,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
-        Transform pointsObject = GameObject.FindGameObjectWithTag("Points").transform;
+        Transform pointsObject = GameObject.FindGameObjectWithTag("Points2").transform;
         foreach (Transform t in pointsObject)
             points.Add(t);
 
@@ -28,16 +28,13 @@ public class PatrolBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.SetDestination(points[Random.Range(0, points.Count)].position);
         }
         timer += Time.deltaTime;
         if (timer > 10)
-        {
             animator.SetBool("isPatrolling", false);
-        }
 
         float distance = Vector3.Distance(animator.transform.position, player.position);
         if (distance < chaseRange)

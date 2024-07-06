@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
     public float damage = 10;
-    public float fireRate = 10;
-    public float range = 15;
+    public float fireRate = 5;
+    public float range = 30;
+    public static int bulletCount = 30;
     public Transform bulletSpawn;
     public ParticleSystem muzzleFlash;
+    public TextMeshProUGUI playerBulletText;
 
     public GameObject impactEffect;
     public GameObject HpEffect;
@@ -19,14 +22,11 @@ public class Shooting : MonoBehaviour
     public Camera _cam;
     private float nextFire = 0;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        playerBulletText.text = "" + bulletCount;
+        if (Input.GetButton("Fire1") && Time.time > nextFire && bulletCount > 0)
         {
             nextFire = Time.time + 1f / fireRate;
             Shoot();
@@ -37,6 +37,7 @@ public class Shooting : MonoBehaviour
     {
         _audioSource.PlayOneShot(shotSFX);
         muzzleFlash.Play();
+        bulletCount-- ;
         
         RaycastHit hit;
 
@@ -49,11 +50,11 @@ public class Shooting : MonoBehaviour
             {
                 target.TakeDamage(damage);
                 GameObject HP = Instantiate(HpEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(HP, 2f);
+                Destroy(HP, 1f);
             }
 
             GameObject impactGo = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGo, 2f);
+            Destroy(impactGo, 1f);
         }
     }
 }

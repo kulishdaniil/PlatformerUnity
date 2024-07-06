@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Points
+  - Effect
+  - Points2
+  - Points3
   layers:
   - Default
   - TransparentFX
