@@ -21,14 +21,14 @@ public class PauseMenu : MonoBehaviour
         X = Player.transform.position.x;
         Y = Player.transform.position.y;
         Z = Player.transform.position.z;
-        if (PauseGame)
+        /*if (PauseGame)
         {
             Cursor.visible = true;
         }
         else
         {
             Cursor.visible = false;
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (PauseGame)

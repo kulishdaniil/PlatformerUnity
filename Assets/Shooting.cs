@@ -9,6 +9,10 @@ public class Shooting : MonoBehaviour
     public float range = 15;
     public Transform bulletSpawn;
     public ParticleSystem muzzleFlash;
+
+    public GameObject impactEffect;
+    public GameObject HpEffect;
+
     public AudioClip shotSFX;
     public AudioSource _audioSource;
 
@@ -38,7 +42,16 @@ public class Shooting : MonoBehaviour
 
         if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, range)) ;
         {
-            Debug.Log("Ïèó ïèó");
+            Debug.Log(hit.transform.name);
+
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+                Instantiate(HpEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+
+            Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 }
