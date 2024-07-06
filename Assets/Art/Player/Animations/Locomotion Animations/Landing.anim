@@ -40595,7 +40595,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.06666667
+  - time: 0.033333335
     functionName: PlayLandingSound
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 04280ce5fb6035445b0e61285fc6cffc, type: 3}

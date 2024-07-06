@@ -1390,9 +1390,8 @@ MonoBehaviour:
   gravityIntensity: -15
   footstepSound: {fileID: 8300000, guid: 3c48f153f7603ca4c8f9f1f1f658a2b9, type: 3}
   runningSound: {fileID: 8300000, guid: 3c48f153f7603ca4c8f9f1f1f658a2b9, type: 3}
-  jumpingSound: {fileID: 8300000, guid: f6773474edb2a6e46b7028407bccd553, type: 3}
   landingSound: {fileID: 8300000, guid: 07795bf221e1eac46b91757984a167f8, type: 3}
-  volume: 0.3
+  volume: 0.2
 --- !u!114 &908690601
 MonoBehaviour:
   m_ObjectHideFlags: 0

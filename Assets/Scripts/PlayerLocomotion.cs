@@ -39,7 +39,6 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Player Sound")]
     public AudioClip footstepSound;
     public AudioClip runningSound;
-    public AudioClip jumpingSound;
     public AudioClip landingSound;
 
     private void Awake()
@@ -209,16 +208,6 @@ public class PlayerLocomotion : MonoBehaviour
         if (runningSound != null && !_audioSource.isPlaying && isGrounded && !isJumping && isRunning)
         {
             _audioSource.PlayOneShot(runningSound, volume);
-        }
-    }
-
-    private void PlayJumpingSound()
-    {
-        AnimatorStateInfo stateInfo = animatorManager.animator.GetCurrentAnimatorStateInfo(0);
-
-        if (jumpingSound != null && !_audioSource.isPlaying && isJumping && !isGrounded)
-        {
-            _audioSource.PlayOneShot(jumpingSound, volume);
         }
     }
 
