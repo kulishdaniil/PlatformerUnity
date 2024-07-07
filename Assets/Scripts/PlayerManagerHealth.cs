@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerManagerHealth : MonoBehaviour
 { 
+
     public static int playerHealth;
     public static bool gameOver;
+    public int maxHealth = 100;
+
+    Image healthBar;
     public TextMeshProUGUI playerHealthText;
     public GameObject RedOverlay;
 
     void Start()
     {
-        playerHealth = 100;
+        healthBar = GetComponent<Image>();
+        playerHealth = maxHealth;
         gameOver = false;
     }
 
     void Update()
     {
+        healthBar.fillAmount = playerHealth / maxHealth;
         playerHealthText.text = "" + playerHealth;
         if (gameOver)
         {
