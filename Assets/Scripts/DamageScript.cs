@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public int damageCount = 10;
+    public float damageCount = 10f;
 
     private void OnCollisionEnter(Collision collision)
     {

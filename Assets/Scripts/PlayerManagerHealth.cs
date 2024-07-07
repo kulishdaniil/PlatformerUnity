@@ -8,12 +8,11 @@ using UnityEngine.SceneManagement;
 public class PlayerManagerHealth : MonoBehaviour
 { 
 
-    public static int playerHealth;
+    public static float playerHealth;
     public static bool gameOver;
-    public int maxHealth = 100;
+    public float maxHealth = 100f;
 
-    Image healthBar;
-    public TextMeshProUGUI playerHealthText;
+    public Image healthBar;
     public GameObject RedOverlay;
 
     void Start()
@@ -26,7 +25,6 @@ public class PlayerManagerHealth : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = playerHealth / maxHealth;
-        playerHealthText.text = "" + playerHealth;
         if (gameOver)
         {
             Cursor.visible = true;
@@ -34,7 +32,7 @@ public class PlayerManagerHealth : MonoBehaviour
         }
     }
 
-    public IEnumerator Damage(int damageCount)
+    public IEnumerator Damage(float damageCount)
     {
         playerHealth -= damageCount;
         RedOverlay.SetActive(true);
