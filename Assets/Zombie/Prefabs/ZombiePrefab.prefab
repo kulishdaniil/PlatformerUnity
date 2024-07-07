@@ -1689,7 +1689,7 @@ GameObject:
   - component: {fileID: 3455629076217780824}
   m_Layer: 0
   m_Name: Z_Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,8 +1863,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443889372605479692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5469202, y: -0.17637564, z: 0.77726567, w: -0.2561798}
-  m_LocalPosition: {x: -3.8425713, y: 16.376099, z: -18.067593}
+  m_LocalRotation: {x: -0.0002563058, y: -0.5746564, z: -0.0056188437, w: -0.81837547}
+  m_LocalPosition: {x: -3.5102367, y: 14.630826, z: -18.957191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1884,7 +1884,7 @@ Transform:
   - {fileID: 304023138853831339}
   - {fileID: 3495800990412277840}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.346, y: 70.151, z: 0.544}
 --- !u!95 &7296054362409819510
 Animator:
   serializedVersion: 5
@@ -1962,9 +1962,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.39835358
-  m_Height: 1.6680394
+  m_Height: 1.6385946
   m_Direction: 1
-  m_Center: {x: 0.007160187, y: 0.98480505, z: 0}
+  m_Center: {x: 0.0071601872, y: 0.97008836, z: 3.5198144e-10}
 --- !u!1 &4466682947870690267
 GameObject:
   m_ObjectHideFlags: 0

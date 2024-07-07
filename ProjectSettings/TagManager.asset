@@ -8,6 +8,7 @@ TagManager:
   - Effect
   - Points2
   - Points3
+  - Head
   layers:
   - Default
   - TransparentFX

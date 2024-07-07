@@ -17,7 +17,6 @@ public class PlayerManagerHealth : MonoBehaviour
 
     void Start()
     {
-        healthBar = GetComponent<Image>();
         playerHealth = maxHealth;
         gameOver = false;
     }

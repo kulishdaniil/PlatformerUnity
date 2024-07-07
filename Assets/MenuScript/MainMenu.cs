@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public static bool Save;
+    void Start()
+    {
+        AudioListener.pause = true;
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        AudioListener.pause = false;
     }
     public void PlaySavedGame()
     {

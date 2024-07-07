@@ -8,7 +8,8 @@ public class Shooting : MonoBehaviour
     public float damage = 10;
     public float fireRate = 5;
     public float range = 30;
-    public static int bulletCount = 30;
+    public static int bulletCount;
+    public int MaxbulletCount = 30;
     public Transform bulletSpawn;
     public ParticleSystem muzzleFlash;
     public TextMeshProUGUI playerBulletText;
@@ -21,6 +22,11 @@ public class Shooting : MonoBehaviour
 
     public Camera _cam;
     private float nextFire = 0;
+
+    void Start()
+    {
+        bulletCount = MaxbulletCount;
+    }
 
 
     void Update()
@@ -41,7 +47,7 @@ public class Shooting : MonoBehaviour
         
         RaycastHit hit;
 
-        if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, range)) ;
+        if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
