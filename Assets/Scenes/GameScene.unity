@@ -673,10 +673,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8355516
+  m_Radius: 0.6592701
   m_Height: 1.6499722
   m_Direction: 1
-  m_Center: {x: 0.3355503, y: -0.17498687, z: 0.0000042261136}
+  m_Center: {x: 0.15926874, y: -0.17498682, z: 0.0000042356683}
 --- !u!23 &155728237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2215,10 +2215,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.94943976
-  m_Height: 1.5823997
+  m_Radius: 0.61545044
+  m_Height: 1.5824002
   m_Direction: 1
-  m_Center: {x: -0.9644727, y: -0.46178478, z: 0.0000042447664}
+  m_Center: {x: -0.63048315, y: -0.46178478, z: 0.000004236158}
 --- !u!23 &478238706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3278,7 +3278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71748cba5ef0bf644b5f2fc7409e4085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 100
   animator: {fileID: 652225240}
 --- !u!195 &652225239
 NavMeshAgent:
@@ -6091,10 +6091,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9203808
+  m_Radius: 0.64959645
   m_Height: 1.5339679
   m_Direction: 1
-  m_Center: {x: 0.42037955, y: -0.3551036, z: 0.0000042198026}
+  m_Center: {x: 0.14959505, y: -0.3551035, z: 0.0000042382085}
 --- !u!23 &1180169214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6866,10 +6866,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.80826
-  m_Height: 1.3470999
+  m_Radius: 0.6660637
+  m_Height: 1.3471
   m_Direction: 1
-  m_Center: {x: 0.3082587, y: -0.44832432, z: 0.0000043021573}
+  m_Center: {x: 0.16606238, y: -0.44832364, z: 0.000004275279}
 --- !u!23 &1377023664
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7396,10 +7396,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.81174326
+  m_Radius: 0.6370488
   m_Height: 1.5872232
   m_Direction: 1
-  m_Center: {x: -0.82677436, y: -0.20636575, z: 0.000004169546}
+  m_Center: {x: -0.6520796, y: -0.20636576, z: 0.000004137798}
 --- !u!23 &1512747490
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8718,10 +8718,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7714025
+  m_Radius: 0.61860025
   m_Height: 1.4267886
   m_Direction: 1
-  m_Center: {x: -0.7864282, y: -0.28658345, z: 0.000004193264}
+  m_Center: {x: -0.6336258, y: -0.28658345, z: 0.0000041862613}
 --- !u!23 &1732130786
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12171,7 +12171,7 @@ MonoBehaviour:
   isJumping: 0
   walkingSpeed: 1.5
   runningSpeed: 5
-  sprintingSpeed: 7
+  sprintingSpeed: 9
   rotationSpeed: 15
   jumpHeight: 1
   gravityIntensity: -15

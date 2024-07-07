@@ -7,14 +7,14 @@ public class ChasingBehaviour : StateMachineBehaviour
 {
     NavMeshAgent agent;
     Transform player;
-    float attackRange = 2;
+    float attackRange = 1;
     float chaseRange = 10;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
-        agent.speed = 1;
+        agent.speed = 3;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -36,6 +36,6 @@ public class ChasingBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(agent.transform.position);
-        agent.speed = 1;
+        agent.speed = 3;
     }
 }
