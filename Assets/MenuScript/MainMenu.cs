@@ -8,11 +8,11 @@ public class MainMenu : MonoBehaviour
     public static bool Save;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
     public void PlaySavedGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
         if (PlayerPrefs.HasKey("SavePositionX") == true)
         {
             Save = true;

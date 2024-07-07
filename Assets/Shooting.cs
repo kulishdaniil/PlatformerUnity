@@ -26,7 +26,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         playerBulletText.text = "" + bulletCount;
-        if (Input.GetButton("Fire1") && Time.time > nextFire && bulletCount > 0)
+        if (Input.GetButton("Fire2") && Time.time > nextFire && bulletCount > 0)
         {
             nextFire = Time.time + 1f / fireRate;
             Shoot();
