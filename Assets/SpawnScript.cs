@@ -67,7 +67,7 @@ public class BotSpawner : MonoBehaviour
                         {
                             indexBot = Random.Range(0, 3);
                             if (indexBot < 2) indexBot = 0;
-                            if (indexBot == 2) indexBot = 1;
+                            if (indexBot >= 2) indexBot = 1;
                             SpawnBot(indexBot);
                         }
                     }
