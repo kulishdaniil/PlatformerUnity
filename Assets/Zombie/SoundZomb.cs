@@ -10,12 +10,6 @@ public class SoundZomb : MonoBehaviour
     public AudioClip chasingSound;
 
     private int observerA=0, observerB=0;
-    //public AudioClip attackSound;
-
-/*    void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }*/
 
     private void PlayLandingSound(AudioClip audio)
     {
@@ -32,7 +26,6 @@ public class SoundZomb : MonoBehaviour
         {
             _audioSource.PlayOneShot(audio);
         }
-        
     }
 
     void Update()

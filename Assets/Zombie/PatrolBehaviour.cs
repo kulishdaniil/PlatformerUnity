@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PatrolBehaviour : StateMachineBehaviour
 {
+
     float timer;
     NavMeshAgent agent;
 

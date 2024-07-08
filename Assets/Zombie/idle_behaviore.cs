@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class idle_behaviore : StateMachineBehaviour
 {
+
     float timer;
     Transform player;
     float chaseRange = 10;
@@ -11,6 +12,7 @@ public class idle_behaviore : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

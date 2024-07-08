@@ -7,10 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManagerHealth : MonoBehaviour
 { 
-
     public static float playerHealth;
     public static bool gameOver;
-    public float maxHealth = 100f;
+    public static float maxHealth = 100f;
 
     public Image healthBar;
     public GameObject RedOverlay;

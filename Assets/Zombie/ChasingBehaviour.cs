@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class ChasingBehaviour : StateMachineBehaviour
 {
+
     NavMeshAgent agent;
     Transform player;
     float attackRange = 1;
