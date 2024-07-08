@@ -66,6 +66,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+        BotSpawner.waveNumber = 0;
+        BotSpawner.numberOfEnemies = 2;
     }
 
     public void SaveGame()

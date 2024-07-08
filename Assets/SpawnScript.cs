@@ -40,6 +40,14 @@ public class BotSpawner : MonoBehaviour
             numberOfEnemies += 2;
             nowTheEnemies = numberOfEnemies;
             waveNumber++;
+            if (waveNumber>5)
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("Menu");
+                waveNumber = 0;
+                numberOfEnemies = 2;
+            }
+
             if (saveWave)
             {
                 waveNumber--;
@@ -51,6 +59,7 @@ public class BotSpawner : MonoBehaviour
                 }
                 saveWave = false;
             }
+
             WaveText.text = "" + waveNumber;
             if (waveNumber <= 2)
             {
