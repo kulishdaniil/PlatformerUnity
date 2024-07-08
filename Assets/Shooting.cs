@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public float fireRate = 5;
     public float range = 30;
     public static int bulletCount;
-    public int MaxbulletCount = 30;
+    public int StartbulletCount = 200;
     public Transform bulletSpawn;
     public ParticleSystem muzzleFlash;
     public TextMeshProUGUI playerBulletText;
@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
 
     void Start()
     {
-        bulletCount = MaxbulletCount;
+        bulletCount = StartbulletCount;
     }
 
 
