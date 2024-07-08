@@ -9,6 +9,7 @@ TagManager:
   - Points2
   - Points3
   - Head
+  - Bot
   layers:
   - Default
   - TransparentFX
