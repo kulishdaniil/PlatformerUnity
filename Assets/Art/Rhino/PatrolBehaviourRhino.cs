@@ -10,7 +10,7 @@ public class PatrolBehaviourRhino : StateMachineBehaviour
     NavMeshAgent agent;
 
     Transform player;
-    float chaseRange = 15;
+    float chaseRange = 40;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
