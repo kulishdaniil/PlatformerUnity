@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlaySavedGame()
     {
+        AudioListener.pause = false;
         SceneManager.LoadScene(1);
         if (PlayerPrefs.HasKey("SavePositionX") == true)
         {

@@ -15,7 +15,7 @@ public class BotSpawner : MonoBehaviour
     public int numberOfEnemies = 2;
     public int nowTheEnemies = 0;
 
-    private static int waveNumber = 0;
+    public static int waveNumber = 0;
     private int indexBot;
     private float timer = 0;
 
@@ -38,6 +38,7 @@ public class BotSpawner : MonoBehaviour
             numberOfEnemies += 2;
             nowTheEnemies = numberOfEnemies;
             waveNumber++;
+            if (PauseMenu.saveGame) waveNumber--;
             WaveText.text = "" + waveNumber;
             if (waveNumber <= 2)
             {
