@@ -12,18 +12,20 @@ public class BotSpawner : MonoBehaviour
 
     public TextMeshProUGUI WaveText;
 
-    public int numberOfEnemies = 2;
+    public static int numberOfEnemies = 2;
     public int nowTheEnemies = 0;
 
     public static int waveNumber = 0;
     private int indexBot;
     private float timer = 0;
 
+    public static bool saveWave;
+
     private void Update()
     {
         
         timer += Time.deltaTime;
-        if (timer > 5)
+        if (timer > 2)
         {
             if (SceneManager.GetActiveScene().name == "GameScene") TimerSpawn();
             timer = 0;
@@ -38,7 +40,17 @@ public class BotSpawner : MonoBehaviour
             numberOfEnemies += 2;
             nowTheEnemies = numberOfEnemies;
             waveNumber++;
-            if (PauseMenu.saveGame) waveNumber--;
+            if (saveWave)
+            {
+                waveNumber--;
+                numberOfEnemies -= 2;
+                if (waveNumber == 0)
+                {
+                    waveNumber++;
+                    numberOfEnemies += 2;
+                }
+                saveWave = false;
+            }
             WaveText.text = "" + waveNumber;
             if (waveNumber <= 2)
             {

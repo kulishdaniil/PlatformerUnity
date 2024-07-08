@@ -19,7 +19,8 @@ public class PauseMenu : MonoBehaviour
             MainMenu.Save = false;
             Player.transform.position = new Vector3(PlayerPrefs.GetFloat("SavePositionX"), PlayerPrefs.GetFloat("SavePositionY"), PlayerPrefs.GetFloat("SavePositionZ"));
             BotSpawner.waveNumber = PlayerPrefs.GetInt("Wave");
-            saveGame = true;
+            BotSpawner.numberOfEnemies = PlayerPrefs.GetInt("NumberEnemies");
+            BotSpawner.saveWave = true;
         }
         X = Player.transform.position.x;
         Y = Player.transform.position.y;
@@ -65,7 +66,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
-        saveGame = false;
     }
 
     public void SaveGame()
@@ -74,6 +74,7 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.SetFloat("SavePositionY", Y);
         PlayerPrefs.SetFloat("SavePositionZ", Z);
         PlayerPrefs.SetInt("Wave", BotSpawner.waveNumber);
+        PlayerPrefs.SetInt("NumberEnemies", BotSpawner.numberOfEnemies);
 
         PlayerPrefs.Save();
         Debug.Log("Save");
