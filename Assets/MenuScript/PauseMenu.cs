@@ -52,6 +52,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         PauseGame = false;
         AudioListener.pause = false;
+        Cursor.visible = false;
     }
 
     public void Pause()
@@ -60,6 +61,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         PauseGame = true;
         AudioListener.pause = true;
+        Cursor.visible = true;
     }
 
     public void LoadMenu()
@@ -69,6 +71,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
         BotSpawner.waveNumber = 0;
         BotSpawner.numberOfEnemies = 2;
+        Cursor.visible = true;
     }
 
     void ToggleSceneActivity(string name, bool isActive)
