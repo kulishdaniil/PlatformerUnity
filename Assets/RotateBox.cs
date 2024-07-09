@@ -6,7 +6,7 @@ public class RotateBox : MonoBehaviour
 {
     public float rotateSpeed = 2f;
     public float UpDownSpeed = 2f;
-    private float TranslateY = 0.07f;
+    private float TranslateY = 0.05f;
     private int count = 0;
 
     void Update()
