@@ -64,10 +64,33 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        ToggleSceneActivity("GameScene", false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         BotSpawner.waveNumber = 0;
         BotSpawner.numberOfEnemies = 2;
+    }
+
+    void ToggleSceneActivity(string name, bool isActive)
+    {
+        Scene scene = SceneManager.GetSceneByName(name);
+        if (scene.IsValid())
+        {
+            if (isActive)
+            {
+                SceneManager.SetActiveScene(scene);
+                Debug.Log("—цена " + name + " включена");
+            }
+            else
+            {
+                SceneManager.UnloadSceneAsync(name);
+                Debug.Log("—цена " + name + " выключена");
+            }
+        }
+        else
+        {
+            Debug.LogError("—цена " + name + " не найдена");
+        }
     }
 
     public void SaveGame()

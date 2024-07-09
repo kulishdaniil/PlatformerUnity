@@ -19,7 +19,7 @@ public class BotSpawner : MonoBehaviour
     private int indexBot;
     private float timer = 0;
 
-    public static bool saveWave;
+    public static bool saveWave = false;
 
     private void Update()
     {
