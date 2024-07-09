@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        BotSpawner.waveNumber = 0;
+        BotSpawner.numberOfEnemies = 2;
         ToggleSceneActivity("GameScene", true);
         SceneManager.LoadScene(1);
         AudioListener.pause = false;

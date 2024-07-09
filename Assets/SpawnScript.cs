@@ -73,11 +73,10 @@ public class BotSpawner : MonoBehaviour
             {
                 if (waveNumber == 3)
                 {
+                    indexBot = 0;
                     for (int i = 0; i < numberOfEnemies; i++)
                     {
-                        indexBot = Random.Range(0, 3);
-                        if (indexBot < 3) indexBot = 0;
-                        if (indexBot == 3) indexBot = 1;
+                        if (i == numberOfEnemies-1) indexBot = 1;
                         SpawnBot(indexBot);
                     }
                 }

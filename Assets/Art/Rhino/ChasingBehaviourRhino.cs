@@ -9,7 +9,7 @@ public class ChasingBehaviourRhino : StateMachineBehaviour
     NavMeshAgent agent;
     Transform player;
     float timer;
-    float attackRange = 1;
+    float attackRange = 1.5f;
     float chaseRange = 40;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
