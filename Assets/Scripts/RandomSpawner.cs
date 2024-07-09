@@ -28,6 +28,8 @@ public class ItemSpawner : MonoBehaviour
 
         if (timer >= spawnInterval)
         {
+            currentAmmoCount = GameObject.FindGameObjectsWithTag("BulletBox").Length;
+            currentHealthCount = GameObject.FindGameObjectsWithTag("HealthBox").Length;
             SpawnItem();
             timer = 0f;
         }
@@ -35,7 +37,6 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItem()
     {
-        // Выбор между патронами и аптечками с учетом ограничений
         GameObject itemToSpawn = null;
 
         if (currentAmmoCount < maxAmmo && currentHealthCount < maxHealth)
@@ -53,34 +54,11 @@ public class ItemSpawner : MonoBehaviour
 
         if (itemToSpawn != null)
         {
-            // Случайное положение в пределах границ области спауна
             float x = Random.Range(minX, maxX);
             float z = Random.Range(minZ, maxZ);
             Vector3 spawnPosition = new Vector3(x, y, z);
 
             Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
-
-            // Обновление счетчика
-            if (itemToSpawn == ammoPrefab)
-            {
-                currentAmmoCount++;
-            }
-            else if (itemToSpawn == healthPrefab)
-            {
-                currentHealthCount++;
-            }
-        }
-    }
-
-    public void ItemCollected(GameObject item)
-    {
-        if (item.CompareTag("Ammo"))
-        {
-            currentAmmoCount--;
-        }
-        else if (item.CompareTag("Health"))
-        {
-            currentHealthCount--;
         }
     }
 }
